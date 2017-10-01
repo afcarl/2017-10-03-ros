@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title> ROS @ UW eScience </title>
+
+		<meta name="description" content="Community Seminar about the ROS WG">
+		<meta name="author" content="Ariel Rokem">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/arokem.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+
+		<!-- Draw arrows -->
+		<script>
+        function canvas_arrow_two_heads(context, fromx, fromy, tox, toy){
+        var headlen = 10;   // length of head in pixels
+        var angle = Math.atan2(toy-fromy,tox-fromx);
+        context.moveTo(fromx, fromy);
+        context.lineTo(fromx+headlen*Math.cos(angle+Math.PI/6),fromy+headlen*Math.sin(angle+Math.PI/6));
+        context.moveTo(fromx, fromy);
+        context.lineTo(fromx+headlen*Math.cos(angle-Math.PI/6),fromy+headlen*Math.sin(angle-Math.PI/6));
+	    context.moveTo(fromx, fromy);
+        context.lineTo(tox, toy);
+        context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
+        context.moveTo(tox, toy);
+        context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));}
+       	</script>
+
+		<script>
+        function canvas_arrow(context, fromx, fromy, tox, toy){
+        var headlen = 10;   // length of head in pixels
+        var angle = Math.atan2(toy-fromy,tox-fromx);
+        context.moveTo(fromx, fromy);
+        context.lineTo(tox, toy);
+        context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
+        context.moveTo(tox, toy);
+        context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));}
+        </script>
+
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+
+
+					<img src="images/eScience.png" height="100px" alt="eScience logo" align="middle">
+
+					<h3 align="middle"> The Reproducibility and Open Science Working Group</h3>
+					<h4 align="middle"><div align=left>University of Washington eScience Institute </div></h4>
+
+					<br>
+					<p align="middle"><a href="http://arokem.org">Ariel Rokem</a>
+					<p align="middle">  <small>Follow along at: <t><a href="http://arokem.github.io/2017-10-03-ros/">http://arokem.github.io/2017-10-03-ros</t></a></small></p>
+					<img src="images/cc-by.png" height="30px" alt="License" align="middle">
+
+				</section>
+
+				<section data-background-image="./images/CompSci-X5.jpg" data-background-size="cover" style="background: rgba(255, 255, 255, 0.8);">
+				<blockquote>
+					<img src="images/eScience.png" width="800px">
+				        <small><em>"All across our campus, the process of discovery will increasingly rely on researchers’ ability to extract knowledge from vast amounts of data... In order to remain at the forefront, UW must be a leader in advancing these techniques and technologies, and in making [them] accessible to researchers in the broadest imaginable range of fields"</em></small>
+			  </blockquote>
+				</section>
+
+				<section>
+					<image src="images/DSE-and-sponsors.png" height=180px>
+						<br>
+					 <div>
+						 <p class="fragment"> Software </p>
+						 <p class="fragment"> Education </p>
+						 <p class="fragment"> Careers </p>
+						 <p class="fragment"> Spaces </p>
+						 <p class="fragment"> Data Science Studies</p>
+						 <p class="fragment"> <em>Reproducibility and Open Science </em></p>
+				 	</div>
+				</section>
+
+		<section>
+			<h2> Reproducibility or replicability? </h2>
+			<p class="fragment"> Replicability: same question, different team, different materials (e.g., different data)
+			<p class="fragment"> Reproducibility: same question, different team, same materials (e.g., same software and data)
+
+		</section>
+
+		<section>
+			<div style="position: absolute; top: 100px; left: 0px;">
+			<table style="width:100%">
+			  <tr>
+					<th></th>
+			    <th>DATA</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th> CODE</th>
+			    <th>Same</th>
+			    <th>Different</th>
+			  </tr>
+			  <tr>
+			    <th>Same</th>
+			    <td>Reproducible</td>
+			    <td>Replicable</td>
+			  </tr>
+			  <tr>
+			    <th>Different</th>
+			    <td>Robust</td>
+			    <td>Generalizable</td>
+			  </tr>
+			</table>
+		</div>
+			<div style="position: absolute; left: 600px; top: 500px" >
+				<a href="https://twitter.com/jessicapolka/status/912613481081425920">Kirstie Whitaker</a>
+			</div>
+
+		</section>
+		<section data-background-image="./images/gates-law-school.jpg" data-background-size="cover">
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+				<p>The elements of reproducible research</p>
+			</blockquote>
+		</section>
+
+		<section>
+		<div>
+			<p class="fragment"> Automation </p>
+			<p class="fragment"> Transparency/Verifiability </p>
+	 	</div>
+ 		</section>
+
+
+		<section data-background-image="./images/suzzalo.jpg" data-background-size="cover">
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+				<p align=middle>Scientific reproducibility
+					<br align=middle>
+					and the data science revolution</p>
+			</blockquote>
+		</section>
+
+		<section>
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+			"An article about a computational result is advertising, not scholarship.
+			The actual scholarship is the full software environment, code and data,
+			that produced the result."
+			<a href="http://biostatistics.oxfordjournals.org/content/11/3/385.long">Buckheit and Donoho (1995) </a>
+		</blockquote>
+
+		</section>
+
+		<section>
+			<p> Open source software for science
+			<p class="fragment"> The Python programming language:
+			<p class="fragment"> Relatively easy to learn
+			<p class="fragment"> Free and open source
+			<p class="fragment"> "Batteries included"
+		</section>
+
+		<section>
+			<h4><div align=center>The scientific Python ecosystem</div></h4>
+			<img src="images/python-ecosystem1.png" width=800>
+		</section>
+
+		<section>
+			<h4><div align=center>The scientific Python ecosystem</div></h4>
+			<img src="images/python-ecosystem2.png" width=800>
+		</section>
+
+		<section>
+			<h4><div align=center>The scientific Python ecosystem</div></h4>
+			<img src="images/python-ecosystem3.png" width=800>
+		</section>
+
+		<section>
+			<h4><div align=center>The scientific Python ecosystem</div></h4>
+			<img src="images/python-ecosystem4.png" width=800>
+		</section>
+
+
+		<section>
+			<h4><div align=center>What about data? </div></h4>
+			<p class="fragment"> Sharing data can be really challenging!
+			<p class="fragment"> Large volumes
+			<p class="fragment"> Domain specific or proprietary formats
+			<p class="fragment"> Concerns about privacy and personal health information
+		</section>
+
+		<section>
+			<h4><div align=center>AFQ-browser: an elegant and easy way to share brain dMRI data </div></h4>
+			<small>With Jason Yeatman, Adam Richie-Halford & Josh Smith.</small>
+			<video width="850" autoplay loop>
+				<source src="./video/AFQbrowser-demo.mov">
+			</video>
+			<a href="https://yeatmanlab.github.io/Sarica_2017">https://yeatmanlab.github.io/Sarica_2017</a>
+		</section>
+
+
+		<section data-background-image="./images/portage-bay.jpg" data-background-size="cover" style="background: rgba(255, 255, 255, 0.8);">
+		<blockquote>
+			<img src="images/eScience.png" width="800px">
+						<small><em>"All across our campus, the process of discovery will increasingly rely on researchers’ ability to extract knowledge from vast amounts of data... In order to remain at the forefront, UW must be a leader in advancing these techniques and technologies, and in making [them] accessible to researchers in the broadest imaginable range of fields"</em></small>
+		</blockquote>
+		</section>
+
+				<section>
+				<div style="position:absolute; left: 220px; top:-50px;">
+				<img src="images/globe-xxl.png" width="100px;" >
+				<div style="position:absolute; left: 120px; top:40px;">http://arokem.org
+				</div>
+				</div>
+				<div style="position:absolute; left: 220px; top:70px;">
+				<img src="images/email-11-xxl.png" width="100px;" >
+				<div style="position:absolute; left: 120px; top:40px;">arokem@gmail.com
+				</div>
+				</div>
+				<div style="position:absolute; left: 220px; top:190px;">
+				<img src="images/twitter-xxl.png" width="100px;" >
+				<div style="position:absolute; left: 120px; top:40px;">@arokem
+				</div>
+				</div>
+				<div style="position:absolute; left: 220px; top:310px;">
+				<img src="images/github-6-xxl.png" width="100px;" >
+				<div style="position:absolute; left: 120px; top:40px;">github.com/arokem
+				</div>
+				</div>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

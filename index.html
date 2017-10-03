@@ -30,34 +30,6 @@
 		</script>
 
 
-		<!-- Draw arrows -->
-		<script>
-        function canvas_arrow_two_heads(context, fromx, fromy, tox, toy){
-        var headlen = 10;   // length of head in pixels
-        var angle = Math.atan2(toy-fromy,tox-fromx);
-        context.moveTo(fromx, fromy);
-        context.lineTo(fromx+headlen*Math.cos(angle+Math.PI/6),fromy+headlen*Math.sin(angle+Math.PI/6));
-        context.moveTo(fromx, fromy);
-        context.lineTo(fromx+headlen*Math.cos(angle-Math.PI/6),fromy+headlen*Math.sin(angle-Math.PI/6));
-	    context.moveTo(fromx, fromy);
-        context.lineTo(tox, toy);
-        context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
-        context.moveTo(tox, toy);
-        context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));}
-       	</script>
-
-		<script>
-        function canvas_arrow(context, fromx, fromy, tox, toy){
-        var headlen = 10;   // length of head in pixels
-        var angle = Math.atan2(toy-fromy,tox-fromx);
-        context.moveTo(fromx, fromy);
-        context.lineTo(tox, toy);
-        context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
-        context.moveTo(tox, toy);
-        context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));}
-        </script>
-
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -103,9 +75,28 @@
 				</section>
 
 		<section>
+			<h2> Is there a "reproducibility crisis"? </h2>
+		</section>
+
+		<section>
+			<image src="images/ioannidis.png" height="600px">
+		</section>
+
+		<section>
+			<image src="images/repro-psych.png" height="600px">
+		</section>
+
+		<section>
 			<h2> Reproducibility or replicability? </h2>
-			<p class="fragment"> Replicability: same question, different team, different materials (e.g., different data)
-			<p class="fragment"> Reproducibility: same question, different team, same materials (e.g., same software and data)
+
+			<p class="fragment"><h3>Many definitions!</h3></p>
+
+			<p class="fragment"> Replicability: same question, different team, different materials (e.g., different data, different software)
+				<br>
+				<br>
+			<p class="fragment"> Reproducibility: same question, different team, same materials (e.g., same data and software)
+
+			<h3><p class="fragment"> But there are other definitions!<p></h3>
 
 		</section>
 
@@ -137,38 +128,49 @@
 			<div style="position: absolute; left: 600px; top: 500px" >
 				<a href="https://twitter.com/jessicapolka/status/912613481081425920">Kirstie Whitaker</a>
 			</div>
-
 		</section>
-		<section data-background-image="./images/gates-law-school.jpg" data-background-size="cover">
-			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
-				<p>The elements of reproducible research</p>
-			</blockquote>
-		</section>
-
-		<section>
-		<div>
-			<p class="fragment"> Automation </p>
-			<p class="fragment"> Transparency/Verifiability </p>
-	 	</div>
- 		</section>
-
 
 		<section data-background-image="./images/suzzalo.jpg" data-background-size="cover">
 			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
-				<p align=middle>Scientific reproducibility
-					<br align=middle>
-					and the data science revolution</p>
+				<p align=middle> The elements of reproducible science </p>
 			</blockquote>
 		</section>
 
 		<section>
+			<a href="https://www.practicereproducibleresearch.org/">https://www.practicereproducibleresearch.org/</a>
+		</section>
+
+		<section>
+			<h3>"Assessing reproducibility" (with Ben Marwick and Valentina Staneva)</h3>
+		<div>
+			<p class="fragment"> Automation and provenance tracking</p>
+			<p class="fragment"> Availability of software and data </p>
+			<p class="fragment"> Open reporting of results </p>
+			<p class="fragment"> <font color="red">Robust evidence </p></font>
+	 	</div>
+ 		</section>
+
+		<section>
+			<h2>Reproducibility is a matter of degree, not of kind!</h2>
+		</section>
+
+		<section>
+			<h3>Automation and provenance tracking</h3>
+			<p class="fragment"> Could you reproduce your analysis with the press of a single button?</p>
+			<p class="fragment"> Provenance tracking: can you work your way from raw data to figures/inferences ?</p>
+			<p class="fragment"> Can you describe the history of the development of your project? </p>
+		</section>
+
+		<section>
+			<h3>Availability of software and data</h3>
+			<div class="fragment">
 			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
 			"An article about a computational result is advertising, not scholarship.
 			The actual scholarship is the full software environment, code and data,
 			that produced the result."
 			<a href="http://biostatistics.oxfordjournals.org/content/11/3/385.long">Buckheit and Donoho (1995) </a>
 		</blockquote>
-
+		</div>
 		</section>
 
 		<section>
@@ -199,29 +201,61 @@
 			<img src="images/python-ecosystem4.png" width=800>
 		</section>
 
-
-		<section>
-			<h4><div align=center>What about data? </div></h4>
-			<p class="fragment"> Sharing data can be really challenging!
-			<p class="fragment"> Large volumes
-			<p class="fragment"> Domain specific or proprietary formats
-			<p class="fragment"> Concerns about privacy and personal health information
+		<section data-background-image="./images/gates-law-school.jpg" data-background-size="cover">
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+				<p>Reproducible and <em>Open</em> science?</p>
+			</blockquote>
 		</section>
 
 		<section>
-			<h4><div align=center>AFQ-browser: an elegant and easy way to share brain dMRI data </div></h4>
-			<small>With Jason Yeatman, Adam Richie-Halford & Josh Smith.</small>
-			<video width="850" autoplay loop>
-				<source src="./video/AFQbrowser-demo.mov">
-			</video>
-			<a href="https://yeatmanlab.github.io/Sarica_2017">https://yeatmanlab.github.io/Sarica_2017</a>
+			<img src="images/open-science.png" width=800>
+		</section>
+
+		<section>
+			<h3>Open reporting of results </h3>
+			<p class="fragment"> Communicate your results early in the process </p>
+			<p class="fragment"> Publish so that a large audience has access </p>
 		</section>
 
 
+		<section>
+			<h3>Robust evidence</h3>
+			<p class="fragment">p-hacking</p>
+			<p class="fragment">HARKing</p>
+			<p class="fragment"></p>
+
+		</section>
+
+		<section>
+			<div>
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+			"Honesty and transparency are not enough. I worry that the push toward various desirable <em>procedural</em> goals can make people neglect the fundamental <em>scientific</em> and <em>statistical</em> problems that, ultimately, have driven the replication crisis"
+			</blockquote>
+			</div>
+			<div style="position: absolute; left: 600px; top: 500px" >
+				<a href="http://www.stat.columbia.edu/~gelman/research/published/ChanceEthics14.pdf">Andrew Gelman (2014)</a>
+			</div>
+				</section>
+
+		<section>
+			<div>
+			<blockquote  style="background: rgba(255, 255, 255, 0.8);">
+			"This discussion echoes similar points in ethics more generally. For instance, doctors should first do no harm and should care for their patients, but there are times that all the care in the world is no substitute for a good antibiotic. We want medical researchers to convey their uncertainty appropriately, but more important is for them to have useful results to talk about. This is facilitated by close links between data, measurement and substantive theory"
+			</blockquote>
+			</div>
+			<div style="position: absolute; left: 600px; top: 500px" >
+			<a href="http://www.stat.columbia.edu/~gelman/research/published/ChanceEthics14.pdf">Andrew Gelman (2014)</a>
+		</div>
+		</section>
+
+		<section>
+			Come see Andrew Gelman speak at the Data Science Seminar on
+			October 25th!
+		</section>
 		<section data-background-image="./images/portage-bay.jpg" data-background-size="cover" style="background: rgba(255, 255, 255, 0.8);">
 		<blockquote>
 			<img src="images/eScience.png" width="800px">
-						<small><em>"All across our campus, the process of discovery will increasingly rely on researchers’ ability to extract knowledge from vast amounts of data... In order to remain at the forefront, UW must be a leader in advancing these techniques and technologies, and in making [them] accessible to researchers in the broadest imaginable range of fields"</em></small>
+						Join us! <br>
 		</blockquote>
 		</section>
 
